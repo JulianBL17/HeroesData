@@ -1,0 +1,46 @@
+<H2 class="text-center display-2 bg-info">HEROES</H2>
+<hr />
+
+<div class="row">
+  <div class="col-md-12 text-right">
+    <button (click)="agregar()" class="btn btn-outline-success">
+      Nuevo Heroe
+    </button>
+  </div>
+</div>
+<br />
+
+<div class="row animated fadeIn fast">
+  <div class="col-md-12">
+
+    <div class="table-responsive">
+
+      <div>
+        <table class="table">
+          <thead class="thead-inverse">
+            <tr>
+              <th scope="col">Dato</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Casa</th>
+              <th scope="col">Biografia</th>
+              <th scope="col">Opciones</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let k of heroes | keys; let i=index"> <!--//pipe de keys -->
+              <td>{{i+1}}</td>
+              <td>{{heroes[k].nombre}}</td>
+              <td>{{heroes[k].casa}}</td>
+              <td>{{heroes[k].biografia}}</td>
+              <td> 
+                <button type="button" class="btn btn-outline-primary" [routerLink]="['/heroe',k]" >Modificar</button> 
+                <button (click)="Eliminar(k)" type="button" class="btn btn-outline-danger">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
